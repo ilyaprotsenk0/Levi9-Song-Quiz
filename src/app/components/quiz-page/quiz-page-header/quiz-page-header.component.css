@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-wrap {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}

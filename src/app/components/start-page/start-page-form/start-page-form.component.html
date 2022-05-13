@@ -1,0 +1,14 @@
+<div class="form-wrap">
+  <h1>Welcome!</h1>
+  <p>Please enter your name and let's start our quiz!</p>
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="TYPE YOUR NAME HERE..."
+    />
+    <div class="input-indicator"></div>
+    <br />
+    <app-button [isFormValid]="form.invalid"></app-button>
+  </form>
+</div>

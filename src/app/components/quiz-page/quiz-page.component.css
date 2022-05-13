@@ -1,0 +1,32 @@
+.quiz-page-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  border: 1px solid orange;
+}
+
+.progress-bar {
+  border: 1px solid peachpuff;
+  display: flex;
+  justify-content: space-around;
+}
+
+.progress-bar-item {
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.quiz-card-wrapper {
+  border: 1px solid purple;
+  display: flex;
+}
+
+.quiz-card-left-side {
+  width: 40%;
+  border: 1px solid gainsboro;
+}
+
+.quiz-card-right-side {
+  width: 60%;
+  border: 1px solid pink;
+}

@@ -1,0 +1,29 @@
+<div class="quiz-page-container">
+  <app-quiz-page-header></app-quiz-page-header>
+  <div class="progress-bar">
+    <div class="progress-bar-item" *ngFor="let genre of quizData">
+      {{ genre.genre | uppercase }}
+    </div>
+  </div>
+  <div class="quiz-card-wrapper">
+    <div class="quiz-card-left-side">
+      <div
+        class="quiz-card-genre-item"
+        *ngFor="let genre of quizData; let i = index"
+      >
+        <h1>{{ genre.genre | titlecase }} song</h1>
+        <p>Listen to the audio guess what song it is from the list</p>
+        <div
+          class="quiz-card-genre-songs-container"
+          *ngFor="let song of genre.songsData"
+        >
+          <p>{{ song.id }} {{ song.name }} {{ song.songTitle }}</p>
+          <div>
+            <audio controls [src]='song.audio'></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quiz-card-right-side"></div>
+  </div>
+</div>
