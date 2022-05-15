@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { LogoComponent } from './shared/components/logo/logo.component';
 // Start quiz page
@@ -13,6 +14,9 @@ import { ButtonComponent } from './shared/components/button/button.component';
 // Quiz page
 import { QuizPageComponent } from './components/quiz-page/quiz-page.component';
 import { QuizPageHeaderComponent } from './components/quiz-page/quiz-page-header/quiz-page.component';
+// Result page
+import { ResultPageComponent } from './components/result-page/result-page.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { QuizPageHeaderComponent } from './components/quiz-page/quiz-page-header
     LogoComponent,
     QuizPageComponent,
     QuizPageHeaderComponent,
+    ResultPageComponent,
     ButtonComponent
   ],
   imports: [

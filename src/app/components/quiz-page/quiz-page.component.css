@@ -30,3 +30,26 @@
   width: 60%;
   border: 1px solid pink;
 }
+
+.quiz-card-song-item-pic {
+  width: 350px;
+  height: 300px;
+}
+
+.quiz-card-song-item-pic img {
+  width: 100%;
+}
+
+.song-info {
+  height: 45px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 16px;
+}
+
+.right-answer {
+  background-color: green;
+}

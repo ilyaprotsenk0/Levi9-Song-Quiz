@@ -8,7 +8,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: 'start-page-form.component.html',
   styleUrls: ['start-page-form.component.css'],
 })
-export class StartPageFormComponent {
+
+export class StartPageFormComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
   form!: FormGroup;

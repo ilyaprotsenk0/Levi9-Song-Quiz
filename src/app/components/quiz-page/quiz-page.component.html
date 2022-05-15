@@ -1,29 +1,46 @@
-<div class="quiz-page-container">
+<div class="quiz-page-container" *ngIf="counter < quizData.length">
   <app-quiz-page-header></app-quiz-page-header>
+
   <div class="progress-bar">
     <div class="progress-bar-item" *ngFor="let genre of quizData">
       {{ genre.genre | uppercase }}
     </div>
   </div>
+  
   <div class="quiz-card-wrapper">
     <div class="quiz-card-left-side">
-      <div
-        class="quiz-card-genre-item"
-        *ngFor="let genre of quizData; let i = index"
-      >
-        <h1>{{ genre.genre | titlecase }} song</h1>
-        <p>Listen to the audio guess what song it is from the list</p>
-        <div
-          class="quiz-card-genre-songs-container"
-          *ngFor="let song of genre.songsData"
-        >
-          <p>{{ song.id }} {{ song.name }} {{ song.songTitle }}</p>
-          <div>
-            <audio controls [src]='song.audio'></audio>
+      <div class="quiz-card-genre-item">
+
+        <div class="quiz-card-genre-item-text">
+          <h1>{{genreData.genre | titlecase}} song</h1>
+          <p>Listen to the audio guess what song is it from the list</p>
+        </div>
+
+        <div class="quiz-card-genre-item-audio">
+
+        </div>
+
+        <div *ngFor="let song of genreData.data; let i = index">
+          <div class="song-info" (click)="onSelect(i)" (click)="checkRightAnswer(song.id)" [ngClass]="{'right-answer' : test && song.id === rightSongId}">
+            0{{i + 1}}: {{song.name}} - {{song.songTitle}}
           </div>
         </div>
       </div>
     </div>
-    <div class="quiz-card-right-side"></div>
-  </div>
+
+    <div class="quiz-card-right-side">
+      <div class="quiz-card-song-item" *ngIf="selectedSong">
+        <h3>{{selectedSongData.name}} - {{selectedSongData.songTitle}}</h3>
+        
+        <div>
+          <div class="quiz-card-song-item-pic">
+            <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + selectedSongData.image" [alt]="selectedSongData.songTitle">
+          </div>
+          <audio [src]="'https://levi9-song-quiz.herokuapp.com/api/' + selectedSongData.audio" controls></audio>
+        </div>
+
+        <p>{{selectedSongData.description}}</p>
+      </div>
+    </div>
+    <app-button (click)="increaseCounter()" [isFormValid]="!test"></app-button>
 </div>

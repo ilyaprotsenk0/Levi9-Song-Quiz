@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CounterService } from 'src/app/services/counter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-page',
@@ -7,44 +9,55 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['quiz-page.component.css'],
 })
 export class QuizPageComponent implements OnInit {
+  counter: number = 0;
   quizData: any = [];
-  constructor(private http: HttpClient) {}
+  genreData: any = [];
+
+  constructor(private http: HttpClient, private counterService: CounterService, private router: Router) {}
 
   ngOnInit() {
     this.http
       .get<any>('https://levi9-song-quiz.herokuapp.com/api/data')
       .subscribe((data) => {
-        this.quizData = this.parseData(data);
-        console.log(this.quizData);
+        this.quizData = data;
+
+        this.counterService.currentCounter.subscribe((counter) => {
+          this.counter = counter;
+
+          if (this.counter < this.quizData.length) {
+            this.genreData = this.quizData[counter];
+            console.log(this.genreData);
+          } else {
+            this.router.navigateByUrl('/result');
+          }
+        });
       });
   }
 
-  parseData(data: any) {
-    const newData: any = [];
+  selectedSong!: boolean;
+  selectedSongData: any = [];
 
-    for (let i = 0; i < data.length; i++) {
-      let genre = data[i];
+  onSelect(index: number) {
+    this.selectedSong = true;
+    this.selectedSongData = this.genreData.data[index];
+    console.log(this.selectedSongData);
+  }
 
-      newData.push({
-        id: genre.id,
-        genre: genre.genre,
-        songsData: [],
-      });
-
-      let songs = data[i].data;
-
-      for (let j = 0; j < songs.length; j++) {
-        newData[i].songsData.push({
-          audio: `https://levi9-song-quiz.herokuapp.com/api/${songs[j].audio}`,
-          description: songs[j].description,
-          id: songs[j].id,
-          name: songs[j].name,
-          songTitle: songs[j].songTitle,
-          image: `https://levi9-song-quiz.herokuapp.com/api/${songs[j].image}`,
-        });
-      }
+  rightSongId = '1-3' || '2-1' || '3-2' || '4-1';
+  test: boolean = false;
+  checkRightAnswer(id: string) {
+    if (id === this.rightSongId) {
+      this.test = true;
+    } else if (this.test) {
+      return;
+    } else {
+      this.test = false;
     }
+  }
 
-    return newData;
+  increaseCounter() {
+    this.selectedSong = false;
+    this.test = false;
+    this.counterService.setCounterIncrement(this.counter);
   }
 }
