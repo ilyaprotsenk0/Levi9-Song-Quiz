@@ -1,0 +1,54 @@
+button {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #7e55b2, #a769c3);
+}
+
+button:hover {
+  background: linear-gradient(45deg, #533461, #714785);
+}
+
+button:disabled {
+  background: linear-gradient(45deg, #808080, #656565);
+  cursor: not-allowed;
+}
+
+.button-arrow {
+  width: 20px;
+  margin-left: 8px;
+}
+
+/*
+
+ inline-flex 
+ items-center 
+ px-4 
+ py-3 
+ rounded
+ text-center 
+ text-sm 
+ text-white 
+ to-quiz-300 
+ uppercase
+font-normal 
+ from-quiz-400 
+*/
+
+/* 
+ bg-gradient-to-r 
+ disabled:cursor-not-allowed 
+ disabled:from-gray-400 
+ disabled:to-gray-500 
+ hover:from-quiz-600 
+ hover:to-quiz-500 
+
+*/

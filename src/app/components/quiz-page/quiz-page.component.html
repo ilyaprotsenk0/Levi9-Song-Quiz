@@ -16,12 +16,13 @@
           <p>Listen to the audio guess what song is it from the list</p>
         </div>
 
-        <div class="quiz-card-genre-item-audio">
-
+        <div class="quiz-card-genre-item-audio" >
+          <audio [src]="'https://levi9-song-quiz.herokuapp.com/api/' + rightAnswerSongUrl" controls></audio>
         </div>
 
         <div *ngFor="let song of genreData.data; let i = index">
-          <div class="song-info" (click)="onSelect(i)" (click)="checkRightAnswer(song.id)" [ngClass]="{'right-answer' : test && song.id === rightSongId}">
+          <div class="song-info" (click)="onSelect(i)" (click)="checkRightAnswer(song.id)" 
+          [ngClass]="{'right-answer' : match && song.id === rightAnswerSongId}">
             0{{i + 1}}: {{song.name}} - {{song.songTitle}}
           </div>
         </div>
@@ -42,5 +43,5 @@
         <p>{{selectedSongData.description}}</p>
       </div>
     </div>
-    <app-button (click)="increaseCounter()" [isFormValid]="!test"></app-button>
 </div>
+<app-button (click)="increaseCounter()" [isFormValid]="!match"></app-button>

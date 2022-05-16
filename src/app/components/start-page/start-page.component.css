@@ -1,12 +1,43 @@
-.app-logo {
-  margin: 0px auto;
-  margin-top: 90px;
-  margin-bottom: 45px;
-  width: 140px;
+.start-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.start-page-form-wrap {
-  max-width: 960px;
+.start-page-logo {
+  width: 144px;
+  position: absolute;
+  top: 80px;
+}
+
+.start-page-form {
+  width: 85%;
+  padding: 64px 32px;
+  margin: 0 auto;
   background-color: #1b1d31;
-  margin: 0px auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .start-page-form {
+    padding-left: 112px;
+    padding-right: 112px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .start-page-form {
+    width: 75%;
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .start-page-form {
+    width: 50%;
+  }
 }

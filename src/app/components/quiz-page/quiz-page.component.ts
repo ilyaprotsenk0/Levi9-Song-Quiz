@@ -12,6 +12,8 @@ export class QuizPageComponent implements OnInit {
   counter: number = 0;
   quizData: any = [];
   genreData: any = [];
+  rightAnswerSongId!: string;
+  rightAnswerSongUrl!: string;
 
   constructor(private http: HttpClient, private counterService: CounterService, private router: Router) {}
 
@@ -27,11 +29,20 @@ export class QuizPageComponent implements OnInit {
           if (this.counter < this.quizData.length) {
             this.genreData = this.quizData[counter];
             console.log(this.genreData);
+            this.rightAnswerSongId = this.randRightAnswerSongId(this.genreData.data);
+            console.log(this.rightAnswerSongId);
+            this.rightAnswerSongUrl = this.genreData.data.filter((item: any) => item.id === this.rightAnswerSongId)[0].audio;
+            console.log(this.rightAnswerSongUrl);
           } else {
             this.router.navigateByUrl('/result');
           }
         });
       });
+  }
+
+  randRightAnswerSongId(data: any) {
+    const r = Math.floor(Math.random() * data.length);
+    return data.map((item: any) => item.id)[r];
   }
 
   selectedSong!: boolean;
@@ -43,21 +54,22 @@ export class QuizPageComponent implements OnInit {
     console.log(this.selectedSongData);
   }
 
-  rightSongId = '1-3' || '2-1' || '3-2' || '4-1';
-  test: boolean = false;
+  match: boolean = false;
   checkRightAnswer(id: string) {
-    if (id === this.rightSongId) {
-      this.test = true;
-    } else if (this.test) {
+    console.log(`Correct answer: ${this.rightAnswerSongId}`);
+    console.log(`Clicked id: ${id}`);
+    
+    if (id === this.rightAnswerSongId) {
+      this.match = true;
+      console.log('Match');
+    } else if (this.match) {
       return;
-    } else {
-      this.test = false;
     }
   }
 
   increaseCounter() {
     this.selectedSong = false;
-    this.test = false;
+    this.match = false;
     this.counterService.setCounterIncrement(this.counter);
   }
 }

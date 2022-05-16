@@ -1,1 +1,6 @@
-<button type="submit" [disabled]="isFormValid">START QUIZ -></button>
+<button type="submit" [disabled]="isFormValid">
+  {{ buttonText | uppercase }}
+  <div class="button-arrow">
+    <img src="assets/images/arrow.png" alt="Button arrow" />
+  </div>
+</button>
