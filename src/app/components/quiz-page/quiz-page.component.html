@@ -1,47 +1,85 @@
-<div class="quiz-page-container" *ngIf="counter < quizData.length">
+<div class="quiz-page">
+  <app-quiz-page-header></app-quiz-page-header>
+  <app-quiz-page-progress-bar
+    [allGenresData]="allGenresData"
+  ></app-quiz-page-progress-bar>
+  <app-quiz-page-quiz></app-quiz-page-quiz>
+  <app-button
+    (click)="increaseCounter()"
+    [isFormValid]="true"
+    [buttonText]="'Next question'"
+  ></app-button>
+</div>
+
+<!-- <div class="quiz-page" *ngIf="counter < allGenresData.length">
   <app-quiz-page-header></app-quiz-page-header>
 
-  <div class="progress-bar">
-    <div class="progress-bar-item" *ngFor="let genre of quizData">
-      {{ genre.genre | uppercase }}
-    </div>
-  </div>
-  
-  <div class="quiz-card-wrapper">
-    <div class="quiz-card-left-side">
-      <div class="quiz-card-genre-item">
+  <div class="quiz-page-body">
+    <div class="quiz-page-body-left">
+      <h2>{{ singleGenreData.genre | titlecase }} song</h2>
+      <p>Listen to the audio guess what song is it from the list</p>
 
-        <div class="quiz-card-genre-item-text">
-          <h1>{{genreData.genre | titlecase}} song</h1>
-          <p>Listen to the audio guess what song is it from the list</p>
-        </div>
+      <div class="quiz-card-genre-item-audio">
+        <audio
+          [src]="
+            'https://levi9-song-quiz.herokuapp.com/api/' + rightAnswerSongUrl
+          "
+          controls
+        ></audio>
+      </div>
 
-        <div class="quiz-card-genre-item-audio" >
-          <audio [src]="'https://levi9-song-quiz.herokuapp.com/api/' + rightAnswerSongUrl" controls></audio>
-        </div>
-
-        <div *ngFor="let song of genreData.data; let i = index">
-          <div class="song-info" (click)="onSelect(i)" (click)="checkRightAnswer(song.id)" 
-          [ngClass]="{'right-answer' : match && song.id === rightAnswerSongId}">
-            0{{i + 1}}: {{song.name}} - {{song.songTitle}}
-          </div>
+      <div *ngFor="let song of singleGenreData.data; let i = index">
+        <div
+          class="song-info"
+          (click)="onSelect(i)"
+          (click)="checkRightAnswer(song.id)"
+          [ngClass]="{
+            'right-answer': match && song.id === rightAnswerSongId
+          }"
+        >
+          0{{ i + 1 }}: {{ song.name }} - {{ song.songTitle }}
         </div>
       </div>
     </div>
 
-    <div class="quiz-card-right-side">
+    <div class="quiz-page-body-right">
       <div class="quiz-card-song-item" *ngIf="selectedSong">
-        <h3>{{selectedSongData.name}} - {{selectedSongData.songTitle}}</h3>
-        
+        <h3>{{ selectedSongData.name }} - {{ selectedSongData.songTitle }}</h3>
+
         <div>
           <div class="quiz-card-song-item-pic">
-            <img [src]="'https://levi9-song-quiz.herokuapp.com/api/' + selectedSongData.image" [alt]="selectedSongData.songTitle">
+            <img
+              [src]="
+                'https://levi9-song-quiz.herokuapp.com/api/' +
+                selectedSongData.image
+              "
+              [alt]="selectedSongData.songTitle"
+            />
           </div>
-          <audio [src]="'https://levi9-song-quiz.herokuapp.com/api/' + selectedSongData.audio" controls></audio>
+          <audio
+            [src]="
+              'https://levi9-song-quiz.herokuapp.com/api/' +
+              selectedSongData.audio
+            "
+            controls
+          ></audio>
         </div>
 
-        <p>{{selectedSongData.description}}</p>
+        <p>{{ selectedSongData.description }}</p>
       </div>
     </div>
-</div>
-<app-button (click)="increaseCounter()" [isFormValid]="!match"></app-button>
+  </div>
+
+  <app-button
+    (click)="increaseCounter()"
+    [isFormValid]="!match"
+    [buttonText]="'Next question'"
+    *ngIf="counter < allGenresData.length - 1"
+  ></app-button>
+  <app-button
+    (click)="increaseCounter()"
+    [isFormValid]="!match"
+    [buttonText]="'See my score'"
+    *ngIf="counter === allGenresData.length - 1"
+  ></app-button>
+</div> -->

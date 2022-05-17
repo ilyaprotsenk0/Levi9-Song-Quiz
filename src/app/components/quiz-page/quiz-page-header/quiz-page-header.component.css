@@ -1,10 +1,18 @@
 header {
   display: flex;
   justify-content: space-between;
+  padding: 18px 0px;
 }
 
-.user-wrap {
-  width: 150px;
-  display: flex;
-  justify-content: space-between;
+.user-score {
+  color: #ffffff;
+}
+
+.user-score-name {
+  margin-right: 30px;
+  font-weight: 500;
+}
+
+.user-score-value {
+  margin-left: 5px;
 }

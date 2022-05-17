@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-quiz-page-header',
@@ -17,7 +17,6 @@ export class QuizPageHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userService.UserName$.subscribe((name: string) => {
-      console.log(name);
       this.userName = name;
     });
   }

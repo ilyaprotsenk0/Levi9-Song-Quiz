@@ -1,0 +1,18 @@
+<div class="progress-bar">
+  <div class="progress-bar-indicator"></div>
+  <div class="progress-bar-items">
+    <div
+      class="progress-bar-item"
+      *ngFor="let genreItem of allGenresData; let i = index"
+    >
+      <div class="progress-bar-item-genre">
+        {{ genreItem.genre | uppercase }}
+      </div>
+      <div class="progress-bar-item-arrow" *ngIf="i < allGenresData.length - 1">
+        <img src="assets/images/arrow.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- *ngFor="let genre of [quizData] -->

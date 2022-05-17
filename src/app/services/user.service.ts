@@ -8,7 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
   constructor() {}
 
-  private userName: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private userName: BehaviorSubject<string> = new BehaviorSubject<string>(
+    'Ilya'
+  );
 
   // userNameSubject$ = this.userName.asObservable();
 

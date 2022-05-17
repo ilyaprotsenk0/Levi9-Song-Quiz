@@ -1,7 +1,8 @@
 <header>
   <app-logo></app-logo>
-  <div class="user-wrap">
-    <div class="user-name">{{ userName }}</div>
-    <div class="user-score">Your Score: {{ userScore }}</div>
+  <div class="user-score">
+    <span class="user-score-name">{{ userName | uppercase }}</span>
+    <span>Your Score:</span>
+    <span class="user-score-value">{{ userScore }}</span>
   </div>
 </header>

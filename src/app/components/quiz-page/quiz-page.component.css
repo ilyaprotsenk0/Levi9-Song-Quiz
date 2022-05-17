@@ -1,34 +1,96 @@
-.quiz-page-container {
-  max-width: 1024px;
+.quiz-page {
+  width: 100%;
   margin: 0 auto;
-  border: 1px solid orange;
+  padding: 24px 8px 0px 8px;
 }
 
-.progress-bar {
-  border: 1px solid peachpuff;
+.quiz-page-body {
+  background-color: #1b1d31;
+  margin-bottom: 8px;
+  padding: 48px;
+}
+
+/*   sm:px-4 lg:px-12*/
+
+@media (min-width: 640px) {
+  .quiz-page {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .quiz-page {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quiz-page {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .quiz-page {
+    max-width: 1280px;
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .quiz-page {
+    max-width: 1536px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+.quiz-page-body {
   display: flex;
-  justify-content: space-around;
 }
 
-.progress-bar-item {
-  height: 35px;
+/* Quiz left side */
+
+.quiz-page-body-left {
+  width: 42%;
+  padding-right: 24px;
+}
+
+.quiz-page-body-left h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.quiz-page-body-left p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 30px;
+}
+
+.quiz-card-genre-item-audio audio {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.song-info {
+  height: 45px;
+  border: 1px solid white;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 16px;
 }
 
-.quiz-card-wrapper {
-  border: 1px solid purple;
-  display: flex;
-}
+/* Quiz right side */
 
-.quiz-card-left-side {
-  width: 40%;
-  border: 1px solid gainsboro;
-}
-
-.quiz-card-right-side {
-  width: 60%;
-  border: 1px solid pink;
+.quiz-page-body-right {
+  width: 58%;
+  padding-left: 24px;
 }
 
 .quiz-card-song-item-pic {
@@ -38,22 +100,4 @@
 
 .quiz-card-song-item-pic img {
   width: 100%;
-}
-
-.song-info {
-  height: 45px;
-    border: 1px solid white;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    padding-left: 16px;
-}
-
-.right-answer {
-  background-color: green;
-}
-
-.wrong-answer {
-  background-color: red;
 }
