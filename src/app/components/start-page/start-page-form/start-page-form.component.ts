@@ -8,7 +8,6 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: 'start-page-form.component.html',
   styleUrls: ['start-page-form.component.css'],
 })
-
 export class StartPageFormComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
@@ -20,11 +19,6 @@ export class StartPageFormComponent implements OnInit {
         validators: [Validators.required],
       }),
     });
-
-    // this.userService.UserName$.subscribe((name: string) => {
-    //   console.log(name);
-    //   // this.userName = name;
-    // });
   }
 
   onSubmit() {

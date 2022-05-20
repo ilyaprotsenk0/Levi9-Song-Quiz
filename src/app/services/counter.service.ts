@@ -10,13 +10,15 @@ export class CounterService {
 
   private counter: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  // userNameSubject$ = this.userName.asObservable();
-
-  get currentCounter(): Observable<number> {
+  getCounter$(): Observable<number> {
     return this.counter.asObservable();
   }
 
-  setCounterIncrement(counter: number): void {
+  setCounter(counter: number): void {
     this.counter.next(counter + 1);
+  }
+
+  resetCounter(): void {
+    this.counter.next(0);
   }
 }

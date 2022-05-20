@@ -1,8 +1,7 @@
 button {
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border: none;
   border-radius: 5px;
   color: #ffffff;

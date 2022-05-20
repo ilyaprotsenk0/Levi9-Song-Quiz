@@ -1,85 +1,33 @@
-<div class="quiz-page">
+<div class="quiz-page" *ngIf="!isDataLoading">
   <app-quiz-page-header></app-quiz-page-header>
   <app-quiz-page-progress-bar
     [allGenresData]="allGenresData"
   ></app-quiz-page-progress-bar>
-  <app-quiz-page-quiz></app-quiz-page-quiz>
+  <div class="quiz-page-body">
+    <app-quiz-page-quiz
+      class="quiz-page-body-left"
+      [allGenresData]="allGenresData"
+    ></app-quiz-page-quiz>
+    <app-quiz-page-description
+      class="quiz-page-body-right"
+      [allGenresData]="allGenresData"
+    ></app-quiz-page-description>
+  </div>
   <app-button
-    (click)="increaseCounter()"
-    [isFormValid]="true"
+    class="quiz-page-button"
+    *ngIf="counter < allGenresDataLength - 1"
+    (click)="toNextGenre()"
+    [isFormValid]="!isRoundOver"
     [buttonText]="'Next question'"
+  ></app-button>
+  <app-button
+    class="quiz-page-button"
+    *ngIf="counter === allGenresDataLength - 1"
+    (click)="toResultPage()"
+    [isFormValid]="!isRoundOver"
+    [buttonText]="'See result'"
   ></app-button>
 </div>
-
-<!-- <div class="quiz-page" *ngIf="counter < allGenresData.length">
-  <app-quiz-page-header></app-quiz-page-header>
-
-  <div class="quiz-page-body">
-    <div class="quiz-page-body-left">
-      <h2>{{ singleGenreData.genre | titlecase }} song</h2>
-      <p>Listen to the audio guess what song is it from the list</p>
-
-      <div class="quiz-card-genre-item-audio">
-        <audio
-          [src]="
-            'https://levi9-song-quiz.herokuapp.com/api/' + rightAnswerSongUrl
-          "
-          controls
-        ></audio>
-      </div>
-
-      <div *ngFor="let song of singleGenreData.data; let i = index">
-        <div
-          class="song-info"
-          (click)="onSelect(i)"
-          (click)="checkRightAnswer(song.id)"
-          [ngClass]="{
-            'right-answer': match && song.id === rightAnswerSongId
-          }"
-        >
-          0{{ i + 1 }}: {{ song.name }} - {{ song.songTitle }}
-        </div>
-      </div>
-    </div>
-
-    <div class="quiz-page-body-right">
-      <div class="quiz-card-song-item" *ngIf="selectedSong">
-        <h3>{{ selectedSongData.name }} - {{ selectedSongData.songTitle }}</h3>
-
-        <div>
-          <div class="quiz-card-song-item-pic">
-            <img
-              [src]="
-                'https://levi9-song-quiz.herokuapp.com/api/' +
-                selectedSongData.image
-              "
-              [alt]="selectedSongData.songTitle"
-            />
-          </div>
-          <audio
-            [src]="
-              'https://levi9-song-quiz.herokuapp.com/api/' +
-              selectedSongData.audio
-            "
-            controls
-          ></audio>
-        </div>
-
-        <p>{{ selectedSongData.description }}</p>
-      </div>
-    </div>
-  </div>
-
-  <app-button
-    (click)="increaseCounter()"
-    [isFormValid]="!match"
-    [buttonText]="'Next question'"
-    *ngIf="counter < allGenresData.length - 1"
-  ></app-button>
-  <app-button
-    (click)="increaseCounter()"
-    [isFormValid]="!match"
-    [buttonText]="'See my score'"
-    *ngIf="counter === allGenresData.length - 1"
-  ></app-button>
-</div> -->
+<div class="loader-wrap" *ngIf="isDataLoading">
+  <div class="loader"></div>
+</div>

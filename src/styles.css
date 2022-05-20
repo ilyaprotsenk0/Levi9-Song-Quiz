@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --quiz-transparent: #ffffff00;
+  --quiz-white: #ffffff;
+  --quiz-gray: #475569;
+  --quiz-light-gray: #cbd5e1b3;
+  --quiz-light-violet: #a769c3;
+  --quiz-blue: #373b62;
+  --quiz-dark-blue: #1b1d31;
+  --quiz-green: #14532d;
+  --quiz-light-green: #15803d;
+  --quiz-red: #7f1d1d;
+  --quiz-light-red: #991b1b;
+}
+
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--quiz-dark-blue);
+  color: var(--quiz-white);
 }

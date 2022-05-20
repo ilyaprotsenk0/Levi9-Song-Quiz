@@ -8,9 +8,8 @@ import { catchError, Observable } from 'rxjs';
 })
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
-
-  fetchAllGenresData(): Observable<Array<Genre>> {
-    return this.httpClient.get<Array<Genre>>(
+  fetchAllGenresData$(): Observable<Array<Genre>> {
+    return this.httpClient.get<any>(
       'https://levi9-song-quiz.herokuapp.com/api/data'
     );
   }

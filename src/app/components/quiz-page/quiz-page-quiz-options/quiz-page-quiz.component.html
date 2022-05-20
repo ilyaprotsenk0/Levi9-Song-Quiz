@@ -1,19 +1,27 @@
-<div class="quiz-page-body-left">
-  <h2>{{ singleGenreData.genre }} song</h2>
+<div class="quiz">
+  <h2>{{ singleGenreData.genre | titlecase }} song</h2>
   <p>Listen to the audio guess what song is it from the list</p>
-
-  <!-- <div class="quiz-card-genre-item-audio">
-      <audio
-        [src]="
-          'https://levi9-song-quiz.herokuapp.com/api/' + rightAnswerSongUrl
-        "
-        controls
-      ></audio>
-    </div> -->
-
-  <!-- <div *ngFor="let song of singeGenreSongs; let i = index">
-    <div class="song-info">
-      0{{ i + 1 }}: {{ song.name }} - {{ song.songTitle }}
+  <div class="quiz-photo">
+    <img
+      [src]="
+        isRoundOver ? roundAnswerImageUrl : 'assets/images/unknown-song.png'
+      "
+      alt="Quiz artist image"
+    />
+  </div>
+  <div class="quiz-audio">
+    <audio [src]="roundAnswerSongUrl" controls></audio>
+  </div>
+  <div *ngFor="let song of singleGenreData.data; let i = index">
+    <div
+      class="quiz-option-wrap"
+      (click)="onSongSelect(song.id, selectedItem)"
+      #selectedItem
+    >
+      <div class="quiz-option-select"></div>
+      <div class="quiz-option">
+        0{{ i + 1 }}: {{ song.name }} - {{ song.songTitle }}
+      </div>
     </div>
-  </div> -->
+  </div>
 </div>

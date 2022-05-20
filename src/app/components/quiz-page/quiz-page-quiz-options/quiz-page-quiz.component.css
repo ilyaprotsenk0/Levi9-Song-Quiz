@@ -1,0 +1,123 @@
+.quiz h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+.quiz p {
+  color: var(--quiz-light-gray);
+  margin-bottom: 15px;
+}
+
+.quiz-audio audio {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.quiz-photo {
+  margin-bottom: 15px;
+}
+
+.quiz-photo img {
+  display: block;
+  padding: 5px;
+  background-color: var(--quiz-blue);
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (min-width: 640px) {
+  .quiz-page {
+    max-width: 640px;
+  }
+
+  .quiz-page-body {
+    padding: 32px 16px 8px 16px;
+  }
+
+  .quiz-photo img {
+    width: 192px;
+    height: 192px;
+  }
+}
+
+@media (min-width: 768px) {
+  .quiz-page {
+    max-width: 768px;
+  }
+
+  .quiz-photo img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quiz-page {
+    max-width: 1024px;
+  }
+
+  .quiz-page-body {
+    padding: 32px 48px 24px 48px;
+  }
+}
+
+.quiz-option-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--quiz-blue);
+  padding: 12px 0px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 16px;
+}
+
+.quiz-option-select {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--quiz-blue);
+  border-radius: 50%;
+  margin-right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-option-select::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.quiz-option-right-answer {
+  background-color: var(--quiz-green);
+  border: 1px solid var(--quiz-light-green);
+}
+
+.quiz-option-right-answer .quiz-option-select {
+  border: 1px solid var(--quiz-light-green);
+}
+
+.quiz-option-right-answer .quiz-option-select::before {
+  background: url("/assets/images/correct-answer-icon.png") no-repeat center
+    center;
+}
+
+.quiz-option-wrong-answer {
+  background-color: var(--quiz-red);
+  border: 1px solid var(--quiz-light-red);
+}
+
+.quiz-option-wrong-answer .quiz-option-select {
+  border: 1px solid var(--quiz-light-red);
+}
+
+.quiz-option-wrong-answer .quiz-option-select::before {
+  background: url("/assets/images/wrong-answer-icon.png") no-repeat center
+    center;
+}

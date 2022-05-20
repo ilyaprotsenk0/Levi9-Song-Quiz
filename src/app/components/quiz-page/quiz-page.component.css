@@ -2,27 +2,71 @@
   width: 100%;
   margin: 0 auto;
   padding: 24px 8px 0px 8px;
+  position: relative;
+  z-index: 10;
 }
 
 .quiz-page-body {
-  background-color: #1b1d31;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--quiz-dark-blue);
   margin-bottom: 8px;
-  padding: 48px;
+  padding: 16px 8px 0px 8px;
+  overflow: hidden;
+  position: relative;
 }
 
-/*   sm:px-4 lg:px-12*/
+.quiz-page-body-left {
+  width: 100%;
+}
+
+.quiz-page-body-right {
+  width: 100%;
+}
+
+.quiz-page-button {
+  float: right;
+}
+
+.loader-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 12px solid var(--quiz-light-violet);
+  border-top: 12px solid var(--quiz-light-gray);
+  opacity: 0.8;
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media (min-width: 640px) {
   .quiz-page {
     max-width: 640px;
+  }
+
+  .quiz-page-body {
+    padding: 32px 16px 8px 16px;
   }
 }
 
 @media (min-width: 768px) {
   .quiz-page {
     max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
 }
 
@@ -30,74 +74,27 @@
   .quiz-page {
     max-width: 1024px;
   }
+
+  .quiz-page-body {
+    padding: 32px 48px 24px 48px;
+  }
 }
 
 @media (min-width: 1280px) {
   .quiz-page {
     max-width: 1280px;
-    padding-left: 56px;
-    padding-right: 56px;
+    padding: 24px 56px 0px 56px;
   }
-}
 
-@media (min-width: 1536px) {
-  .quiz-page {
-    max-width: 1536px;
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+  .quiz-page-body {
+    flex-direction: row;
   }
-}
 
-.quiz-page-body {
-  display: flex;
-}
-
-/* Quiz left side */
-
-.quiz-page-body-left {
-  width: 42%;
-  padding-right: 24px;
-}
-
-.quiz-page-body-left h2 {
-  font-size: 30px;
-  line-height: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.quiz-page-body-left p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 30px;
-}
-
-.quiz-card-genre-item-audio audio {
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.song-info {
-  height: 45px;
-  border: 1px solid white;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  padding-left: 16px;
-}
-
-/* Quiz right side */
-
-.quiz-page-body-right {
-  width: 58%;
-  padding-left: 24px;
-}
-
-.quiz-card-song-item-pic {
-  width: 350px;
-  height: 300px;
-}
-
-.quiz-card-song-item-pic img {
-  width: 100%;
+  .quiz-page-body-left {
+    width: 42%;
+  }
+  .quiz-page-body-right {
+    width: 58%;
+    padding-left: 48px;
+  }
 }

@@ -16,10 +16,9 @@ import { QuizPageComponent } from './components/quiz-page/quiz-page.component';
 import { QuizPageHeaderComponent } from './components/quiz-page/quiz-page-header/quiz-page-header.component';
 import { QuizPageProgressBarComponent } from './components/quiz-page/quiz-page-progress-bar/quiz-page-progress.component';
 import { QuizPageQuizComponent } from './components/quiz-page/quiz-page-quiz-options/quiz-page-quiz.component';
-import { QuizPageSongDescriptionComponent } from './components/quiz-page/quiz-page-song-description/quiz-page-song-description';
+import { QuizPageDescriptionComponent } from './components/quiz-page/quiz-page-song-description/quiz-page-description.component';
 // Result page
 import { ResultPageComponent } from './components/result-page/result-page.component';
-import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { ApiService } from './services/api.service';
     QuizPageHeaderComponent,
     QuizPageProgressBarComponent,
     QuizPageQuizComponent,
-    QuizPageSongDescriptionComponent,
+    QuizPageDescriptionComponent,
     ResultPageComponent,
   ],
   imports: [
@@ -41,7 +40,7 @@ import { ApiService } from './services/api.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ApiService],
+  providers: [],
   bootstrap: [AppComponent],
   exports: [],
 })

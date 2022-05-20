@@ -1,18 +1,31 @@
 <div class="progress-bar">
-  <div class="progress-bar-indicator"></div>
+  <div class="progress-bar-indicator">
+    <div
+      class="progress-bar-gray"
+      [ngStyle]="{ width: 'calc((25% * ' + counter + ') + 25%)' }"
+    ></div>
+    <div
+      class="progress-bar-violet"
+      [ngStyle]="{
+        width: isRoundOver
+          ? 'calc((25% * ' + counter + ') + 25%)'
+          : 'calc(25% * ' + counter + ')'
+      }"
+    ></div>
+  </div>
   <div class="progress-bar-items">
     <div
       class="progress-bar-item"
       *ngFor="let genreItem of allGenresData; let i = index"
+      [ngClass]="isLighted(i, progressBarItem)"
+      #progressBarItem
     >
       <div class="progress-bar-item-genre">
         {{ genreItem.genre | uppercase }}
       </div>
       <div class="progress-bar-item-arrow" *ngIf="i < allGenresData.length - 1">
-        <img src="assets/images/arrow.png" />
+        &#8594;
       </div>
     </div>
   </div>
 </div>
-
-<!-- *ngFor="let genre of [quizData] -->

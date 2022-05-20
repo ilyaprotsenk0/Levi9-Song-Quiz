@@ -1,0 +1,62 @@
+.animations {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  z-index: 0;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-100px, 100px);
+  }
+  50% {
+    transform: translate(0px, 200px);
+  }
+  75% {
+    transform: translate(100px, 100px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(36px);
+  animation-name: floating;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.yellow-circle {
+  top: 0;
+  right: 0;
+  transform: translate(20%, 10%);
+  background-color: yellow;
+}
+
+.red-circle {
+  background-color: red;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, 0%);
+}
+
+.blue-circle {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-60%, 25%);
+  background-color: blue;
+}
+
+.app {
+  z-index: 10;
+}

@@ -1,28 +1,28 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { Subject } from 'rxjs';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-quiz-page-header',
   templateUrl: 'quiz-page-header.component.html',
   styleUrls: ['quiz-page-header.component.css'],
 })
-export class QuizPageHeaderComponent implements OnInit, OnDestroy {
-  private destroy$ = new Subject();
-
+export class QuizPageHeaderComponent implements OnInit {
   public userName!: string;
-  public userScore: number = 0;
+  public userScore!: number;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private scoreService: ScoreService
+  ) {}
 
   ngOnInit() {
-    this.userService.UserName$.subscribe((name: string) => {
+    this.userService.getUserName$().subscribe((name: string) => {
       this.userName = name;
     });
-  }
 
-  ngOnDestroy(): void {
-    this.destroy$.next('');
-    this.destroy$.complete();
+    this.scoreService.getScore$().subscribe((score) => {
+      this.userScore = score;
+    });
   }
 }

@@ -4,4 +4,5 @@ export interface Song {
   songTitle: string;
   image: string;
   audio: string;
+  description: string;
 }

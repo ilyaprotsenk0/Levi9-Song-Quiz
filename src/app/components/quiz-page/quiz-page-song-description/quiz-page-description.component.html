@@ -1,0 +1,19 @@
+<div class="before-song-choose-block" *ngIf="!isRoundNotOver">
+  <img src="assets/images/union.png" alt="union" />
+</div>
+<div *ngIf="isRoundNotOver" class="song-wrap">
+  <h2 class="song-title">{{ songData.name }} - {{ songData.songTitle }}</h2>
+
+  <div class="song-card">
+    <img
+      [src]="'https://levi9-song-quiz.herokuapp.com/api/' + songData.image"
+      [alt]="songData.songTitle"
+    />
+    <audio
+      [src]="'https://levi9-song-quiz.herokuapp.com/api/' + songData.audio"
+      controls
+    ></audio>
+  </div>
+
+  <p class="song-author-descripion">{{ songData.description }}</p>
+</div>
