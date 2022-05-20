@@ -12,8 +12,8 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class QuizPageDescriptionComponent implements OnInit {
   @Input() allGenresData!: Array<Genre>;
   counter!: number;
-  songData!: Song;
-  isRoundNotOver: boolean;
+  songData!: Song | any;
+  isRoundNotOver!: boolean;
 
   constructor(
     private counterService: CounterService,

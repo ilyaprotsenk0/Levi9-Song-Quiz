@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedModule } from 'src/app/shared/components/shared.module';
 
 @Component({
   selector: 'app-start-page',

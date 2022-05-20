@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Genre } from '../models/Genre';
-import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

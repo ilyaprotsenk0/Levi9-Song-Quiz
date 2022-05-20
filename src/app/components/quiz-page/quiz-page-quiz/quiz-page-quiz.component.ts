@@ -16,7 +16,7 @@ export class QuizPageQuizComponent implements OnInit {
   singleGenreData!: Genre;
 
   // Variables for round values
-  roundPoints: number;
+  roundPoints!: number;
   roundAnswer!: string;
   roundAnswerSongUrl!: string;
   roundAnswerImageUrl!: string;
