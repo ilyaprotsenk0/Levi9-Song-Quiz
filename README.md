@@ -4,10 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## How to run app on your local machine
 
-1. Create folder and open it in terminal, run `git clone https://github.com/ilyaprotsenk0/Levi9-Song-Quiz.git`
-2. Run `npm install`
-3. Run `ng serve`
-4. Navigate to `http://localhost:4200/`
+1. Create new folder on your local machine and open it using CLI
+2. Run `git clone https://github.com/ilyaprotsenk0/Levi9-Song-Quiz.git`
+3. Run `npm install`
+4. Run `ng serve`
+5. Navigate to `http://localhost:4200/`
 
 ## Github Pages
 
