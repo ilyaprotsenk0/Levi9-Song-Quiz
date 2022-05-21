@@ -7,6 +7,11 @@ import { UserAuthGuard } from './guards/user-auth.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'start',
+    pathMatch: 'full',
+  },
+  {
     path: 'start',
     component: StartPageComponent,
   },
