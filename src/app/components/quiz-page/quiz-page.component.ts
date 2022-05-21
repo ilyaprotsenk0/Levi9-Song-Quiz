@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/services/store.service';
 import { CounterService } from 'src/app/services/counter.service';
 import { QuizService } from 'src/app/services/quiz.service';
+import { ScoreService } from 'src/app/services/score.service';
 
 @Component({
   selector: 'app-quiz-page',
@@ -23,6 +24,7 @@ export class QuizPageComponent implements OnInit {
     private apiService: ApiService,
     private storeService: StoreService,
     private counterService: CounterService,
+    private scoreService: ScoreService,
     private quizService: QuizService
   ) {}
 
@@ -38,6 +40,8 @@ export class QuizPageComponent implements OnInit {
     });
 
     this.counterService.getCounter$().subscribe((value) => {
+      this.counterService.resetCounter();
+      this.scoreService.resetScore();
       this.counter = value;
     });
 
