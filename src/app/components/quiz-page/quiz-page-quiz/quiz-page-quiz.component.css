@@ -104,7 +104,7 @@
 }
 
 .quiz-option-right-answer .quiz-option-select::before {
-  background: url("/assets/images/check-icon.png") no-repeat center center;
+  background: url("/docs/assets/images/check-icon.png") no-repeat center center;
 }
 
 .quiz-option-wrong-answer {
@@ -117,5 +117,5 @@
 }
 
 .quiz-option-wrong-answer .quiz-option-select::before {
-  background: url("/assets/images/cross-icon.png") no-repeat center center;
+  background: url("/docs/assets/images/cross-icon.png") no-repeat center center;
 }
