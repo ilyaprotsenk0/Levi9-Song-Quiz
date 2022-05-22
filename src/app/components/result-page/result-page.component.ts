@@ -9,22 +9,32 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['result-page.component.css'],
 })
 export class ResultPageComponent implements OnInit {
-  score!: number;
-  name!: string;
+  userName!: string;
+  quizScore!: number;
 
   constructor(
-    private scoreService: ScoreService,
     private userService: UserService,
+    private scoreService: ScoreService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.scoreService.getScore$().subscribe((score) => {
-      this.score = score;
+    this.userService.getUserName$().subscribe((userName) => {
+      this.userName = userName;
+
+      if (!userName) {
+        this.router.navigateByUrl('/start');
+      }
     });
 
-    this.userService.getUserName$().subscribe((name) => {
-      this.name = name;
+    this.scoreService.getIsQuizOver$().subscribe((isQuizOver) => {
+      if (!isQuizOver) {
+        this.router.navigateByUrl('/quiz');
+      }
+    });
+
+    this.scoreService.getScore$().subscribe((quizScore) => {
+      this.quizScore = quizScore;
     });
   }
 

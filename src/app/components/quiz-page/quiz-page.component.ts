@@ -6,6 +6,7 @@ import { StoreService } from 'src/app/services/store.service';
 import { CounterService } from 'src/app/services/counter.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import { ScoreService } from 'src/app/services/score.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-quiz-page',
@@ -18,17 +19,31 @@ export class QuizPageComponent implements OnInit {
   allGenresData!: Array<Genre>;
   allGenresDataLength!: number;
   isRoundOver!: boolean;
+  userName!: string;
 
   constructor(
     private router: Router,
     private apiService: ApiService,
     private storeService: StoreService,
     private counterService: CounterService,
+    private quizService: QuizService,
     private scoreService: ScoreService,
-    private quizService: QuizService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
+    this.scoreService.setIsQuizOver(false);
+    this.scoreService.resetScore();
+    this.counterService.resetCounter();
+
+    this.userService.getUserName$().subscribe((name) => {
+      this.userName = name;
+
+      if (!name) {
+        this.router.navigateByUrl('/start');
+      }
+    });
+
     this.apiService.fetchAllGenresData$().subscribe((data) => {
       this.storeService.setStorageData(data);
       this.isDataLoading = false;
@@ -40,8 +55,6 @@ export class QuizPageComponent implements OnInit {
     });
 
     this.counterService.getCounter$().subscribe((value) => {
-      this.counterService.resetCounter();
-      this.scoreService.resetScore();
       this.counter = value;
     });
 
@@ -55,6 +68,7 @@ export class QuizPageComponent implements OnInit {
   }
 
   toResultPage() {
+    this.scoreService.setIsQuizOver(true);
     this.router.navigateByUrl('/result');
   }
 }

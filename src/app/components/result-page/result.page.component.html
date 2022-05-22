@@ -4,13 +4,15 @@
     <div class="result-page-background-image">
       <img src="assets/images/union.png" alt="Result page background image" />
     </div>
-    <div class="result-page-score">
-      {{ score }}
+    <div class="result-page-quizScore">
+      {{ quizScore }}
     </div>
     <div class="result-page-details-text">
-      <h2 *ngIf="score === 12">{{ name }}, did so great!</h2>
-      <h2 *ngIf="score < 12">{{ name }}, you can do better, try again!</h2>
-      <p>You've got {{ score }} out of 12 points</p>
+      <h2 *ngIf="quizScore === 12">{{ userName }}, did so great!</h2>
+      <h2 *ngIf="quizScore < 12">
+        {{ userName }}, you can do better, try again!
+      </h2>
+      <p>You've got {{ quizScore }} out of 12 points</p>
       <app-button
         class="result-page-button"
         [buttonText]="'Try again'"

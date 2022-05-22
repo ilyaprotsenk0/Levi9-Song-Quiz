@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
-import { SharedModule } from 'src/app/shared/components/shared.module';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-start-page',
   templateUrl: 'start-page.component.html',
   styleUrls: ['start-page.component.css'],
 })
-export class StartPageComponent {}
+export class StartPageComponent implements OnInit {
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.setUserName('');
+  }
+}
