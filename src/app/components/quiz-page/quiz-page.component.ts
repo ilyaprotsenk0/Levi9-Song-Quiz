@@ -32,9 +32,17 @@ export class QuizPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Logic to prevent a bug with clicking back and forward in browser
+    // Example: Quiz has over and result page with 9 of 12 points displays.
+    // User clicks back button and able to choose an new option and then redirect
+    // to result page with invalid result that may be > 12.
+
     this.scoreService.setIsQuizOver(false);
     this.scoreService.resetScore();
     this.counterService.resetCounter();
+
+    // Logic to prevent entering quiz page by browser input
+    // with unfilled name
 
     this.userService.getUserName$().subscribe((name) => {
       this.userName = name;

@@ -10,6 +10,9 @@ export class StartPageComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+    // Logic to prevent a bug when user click back in browser and
+    // possible to change name and redirect to quiz page
+    // with stage and points of previous game with previous name
     this.userService.setUserName('');
   }
 }

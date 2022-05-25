@@ -9,10 +9,11 @@
       [src]="'https://levi9-song-quiz.herokuapp.com/api/' + songData.image"
       [alt]="songData.songTitle"
     />
-    <audio
-      [src]="'https://levi9-song-quiz.herokuapp.com/api/' + songData.audio"
-      controls
-    ></audio>
+    <app-audio-player
+      class="song-card-player"
+      [showArtistImage]="false"
+      [audioUrl]="'https://levi9-song-quiz.herokuapp.com/api/' + songData.audio"
+    ></app-audio-player>
   </div>
 
   <p class="song-author-descripion">{{ songData.description }}</p>

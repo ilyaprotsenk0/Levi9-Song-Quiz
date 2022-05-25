@@ -1,0 +1,51 @@
+<audio
+  [src]="audioUrl"
+  controls
+  #audio
+  (loadedmetadata)="
+    onAudioDataLoaded(duration, currentTime, audio, audioPlayer)
+  "
+></audio>
+<div class="audio-player" #audioPlayer>
+  <div class="artist-image-container" *ngIf="showArtistImage">
+    <img [src]="imageUrl" alt="Player artist image" />
+    <div
+      class="play-pause-container"
+      (click)="onPlayPauseClick(progressBar, audio, currentTime, audioPlayer)"
+      [ngStyle]="{
+        'background-image':
+          state === 'play'
+            ? 'url(/assets/images/pause.png)'
+            : 'url(/assets/images/play.png)'
+      }"
+    ></div>
+  </div>
+  <div
+    *ngIf="!showArtistImage"
+    class="play-pause-container"
+    (click)="onPlayPauseClick(progressBar, audio, currentTime, audioPlayer)"
+    [ngStyle]="{
+      'background-image':
+        state === 'play'
+          ? 'url(/assets/images/pause.png)'
+          : 'url(/assets/images/play.png)'
+    }"
+  ></div>
+  <div class="progress-time-container">
+    <div
+      class="timeline"
+      #timeline
+      (click)="
+        onTimelineClick($event, timeline, audio, progressBar, currentTime)
+      "
+    >
+      <div class="progress" #progressBar>
+        <div class="thumb"></div>
+      </div>
+    </div>
+    <div class="time-container">
+      <div class="current-time" #currentTime>0:00</div>
+      <div class="duration" #duration>0:00</div>
+    </div>
+  </div>
+</div>
