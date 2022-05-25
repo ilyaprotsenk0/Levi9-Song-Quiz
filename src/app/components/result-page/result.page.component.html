@@ -8,11 +8,11 @@
       {{ quizScore }}
     </div>
     <div class="result-page-details-text">
-      <h2 *ngIf="quizScore === 12">{{ userName }}, did so great!</h2>
-      <h2 *ngIf="quizScore < 12">
+      <h2 *ngIf="quizScore === maxScore">{{ userName }}, did so great!</h2>
+      <h2 *ngIf="quizScore < maxScore">
         {{ userName }}, you can do better, try again!
       </h2>
-      <p>You've got {{ quizScore }} out of 12 points</p>
+      <p>You've got {{ quizScore }} out of {{ maxScore }} points</p>
       <app-button
         class="result-page-button"
         [buttonText]="'Try again'"

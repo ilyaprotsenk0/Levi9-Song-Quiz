@@ -55,6 +55,8 @@ export class QuizPageComponent implements OnInit {
     this.apiService.fetchAllGenresData$().subscribe((data) => {
       this.storeService.setStorageData(data);
       this.isDataLoading = false;
+      const maxScore = data.length * 3;
+      this.scoreService.setMaxScore(maxScore);
     });
 
     this.storeService.getStorageData$().subscribe((data) => {

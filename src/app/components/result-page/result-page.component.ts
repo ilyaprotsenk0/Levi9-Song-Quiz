@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ResultPageComponent implements OnInit {
   userName!: string;
   quizScore!: number;
+  maxScore!: number;
 
   constructor(
     private userService: UserService,
@@ -35,6 +36,11 @@ export class ResultPageComponent implements OnInit {
 
     this.scoreService.getScore$().subscribe((quizScore) => {
       this.quizScore = quizScore;
+    });
+
+    this.scoreService.getMaxScore$().subscribe((max) => {
+      this.maxScore = max;
+      console.log(this.maxScore, max);
     });
   }
 
