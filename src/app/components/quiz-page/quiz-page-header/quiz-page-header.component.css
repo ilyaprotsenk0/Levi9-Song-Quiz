@@ -1,7 +1,12 @@
 header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   padding: 18px 0px;
+}
+
+.user-score {
+  margin-top: 10px;
 }
 
 .user-score-name {
@@ -11,4 +16,15 @@ header {
 
 .user-score-value {
   margin-left: 5px;
+}
+
+@media (min-width: 320px) {
+  header {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .user-score {
+    margin-top: 0px;
+  }
 }

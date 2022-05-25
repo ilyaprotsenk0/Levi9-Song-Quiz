@@ -15,8 +15,12 @@
       [ngStyle]="{
         'background-image':
           state === 'play'
-            ? 'https://raw.githubusercontent.com/ilyaprotsenk0/Levi9-Song-Quiz/master/docs/assets/images/pause.png'
-            : 'https://raw.githubusercontent.com/ilyaprotsenk0/Levi9-Song-Quiz/master/docs/assets/images/play.png'
+            ? 'url(' +
+              'https://raw.githubusercontent.com/ilyaprotsenk0/Levi9-Song-Quiz/master/docs/assets/images/pause.png' +
+              ')'
+            : 'url(' +
+              'https://raw.githubusercontent.com/ilyaprotsenk0/Levi9-Song-Quiz/master/docs/assets/images/play.png' +
+              ')'
       }"
     ></div>
   </div>
