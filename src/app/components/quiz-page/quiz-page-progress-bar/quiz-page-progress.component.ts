@@ -9,6 +9,7 @@ import { QuizService } from 'src/app/services/quiz.service';
 })
 export class QuizPageProgressBarComponent implements OnInit {
   @Input() allGenresData: any = [];
+  genresDataLength!: number;
   counter = 0;
   isRoundOver!: boolean;
 
@@ -18,6 +19,8 @@ export class QuizPageProgressBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.genresDataLength = this.allGenresData.length;
+
     this.counterService.getCounter$().subscribe((value) => {
       this.counter = value;
     });

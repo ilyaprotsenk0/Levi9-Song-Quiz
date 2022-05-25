@@ -2,14 +2,29 @@
   <div class="progress-bar-indicator">
     <div
       class="progress-bar-gray"
-      [ngStyle]="{ width: 'calc((25% * ' + counter + ') + 25%)' }"
+      [ngStyle]="{
+        width:
+          'calc(((100%/' +
+          genresDataLength +
+          ') *' +
+          counter +
+          ') + (100%/' +
+          genresDataLength +
+          '))'
+      }"
     ></div>
     <div
       class="progress-bar-violet"
       [ngStyle]="{
         width: isRoundOver
-          ? 'calc((25% * ' + counter + ') + 25%)'
-          : 'calc(25% * ' + counter + ')'
+          ? 'calc(((100%/' +
+            genresDataLength +
+            ') *' +
+            counter +
+            ') + (100%/' +
+            genresDataLength +
+            '))'
+          : 'calc(((100%/' + genresDataLength + ') *' + counter + '))'
       }"
     ></div>
   </div>
