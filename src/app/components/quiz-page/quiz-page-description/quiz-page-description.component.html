@@ -1,7 +1,7 @@
-<div class="before-song-choose-block" *ngIf="!isRoundNotOver">
+<div class="before-song-choose-block" *ngIf="!songData">
   <img src="assets/images/union.png" alt="union" />
 </div>
-<div *ngIf="isRoundNotOver" class="song-wrap">
+<div *ngIf="songData" class="song-wrap">
   <h2 class="song-title">{{ songData.name }} - {{ songData.songTitle }}</h2>
 
   <div class="song-card">

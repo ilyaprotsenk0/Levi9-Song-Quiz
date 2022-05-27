@@ -75,6 +75,7 @@ export class QuizPageComponent implements OnInit {
 
   toNextGenre() {
     this.counterService.setCounter(this.counter);
+    this.quizService.setSelectedSongId('');
   }
 
   toResultPage() {

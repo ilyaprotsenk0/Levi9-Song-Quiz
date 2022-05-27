@@ -13,7 +13,6 @@ export class QuizPageDescriptionComponent implements OnInit {
   @Input() allGenresData!: Array<Genre>;
   counter!: number;
   songData!: Song | any;
-  isRoundNotOver!: boolean;
 
   constructor(
     private counterService: CounterService,
@@ -30,10 +29,6 @@ export class QuizPageDescriptionComponent implements OnInit {
       this.songData = songs.find((song) => {
         return song.id === id;
       });
-    });
-
-    this.quizService.getIsRoundOver$().subscribe((value) => {
-      this.isRoundNotOver = value;
     });
   }
 }

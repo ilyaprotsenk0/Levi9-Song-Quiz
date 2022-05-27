@@ -53,7 +53,7 @@
   }
 
   .song-author-descripion {
-    height: 80px;
+    height: 88px;
     text-overflow: ellipsis;
     white-space: wrap;
     overflow: hidden;
@@ -62,7 +62,7 @@
   }
 
   .before-song-choose-block {
-    height: 574px;
+    height: 557px;
   }
 
   .before-song-choose-block img {
