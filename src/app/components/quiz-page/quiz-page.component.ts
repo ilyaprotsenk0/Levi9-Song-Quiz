@@ -37,7 +37,8 @@ export class QuizPageComponent implements OnInit {
     // User clicks back button and able to choose an new option and then redirect
     // to result page with invalid result that may be > 12.
 
-    this.scoreService.setIsQuizOver(false);
+    this.quizService.setIsQuizOver(false);
+    this.quizService.setSelectedSongId('');
     this.scoreService.resetScore();
     this.counterService.resetCounter();
 
@@ -53,15 +54,11 @@ export class QuizPageComponent implements OnInit {
     });
 
     this.apiService.fetchAllGenresData$().subscribe((data) => {
-      this.storeService.setStorageData(data);
       this.isDataLoading = false;
-      const maxScore = data.length * 3;
-      this.scoreService.setMaxScore(maxScore);
-    });
-
-    this.storeService.getStorageData$().subscribe((data) => {
       this.allGenresData = data;
       this.allGenresDataLength = data.length;
+      const maxScore = data.length * 3;
+      this.scoreService.setMaxScore(maxScore);
     });
 
     this.counterService.getCounter$().subscribe((value) => {
@@ -79,7 +76,7 @@ export class QuizPageComponent implements OnInit {
   }
 
   toResultPage() {
-    this.scoreService.setIsQuizOver(true);
+    this.quizService.setIsQuizOver(true);
     this.router.navigateByUrl('/result');
   }
 }

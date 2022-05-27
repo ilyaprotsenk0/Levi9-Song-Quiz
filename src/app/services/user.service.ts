@@ -15,8 +15,4 @@ export class UserService {
   setUserName(name: string): void {
     this.userName.next(name);
   }
-
-  isUserLogged(): boolean {
-    return Boolean(this.userName.getValue());
-  }
 }

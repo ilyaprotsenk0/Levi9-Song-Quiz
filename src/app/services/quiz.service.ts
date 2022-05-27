@@ -6,12 +6,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class QuizService {
-  private isRoundOver: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
-
   private selectedSongId: BehaviorSubject<string> = new BehaviorSubject<string>(
     ''
+  );
+
+  getSelectedSongId$(): Observable<string> {
+    return this.selectedSongId.asObservable();
+  }
+
+  setSelectedSongId(songId: string): void {
+    this.selectedSongId.next(songId);
+  }
+
+  private isRoundOver: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
   );
 
   getIsRoundOver$(): Observable<boolean> {
@@ -22,11 +30,15 @@ export class QuizService {
     this.isRoundOver.next(status);
   }
 
-  getSelectedSongId$(): Observable<string> {
-    return this.selectedSongId.asObservable();
+  private isQuizOver: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+
+  getIsQuizOver$(): Observable<boolean> {
+    return this.isQuizOver.asObservable();
   }
 
-  setSelectedSongId(songId: string): void {
-    this.selectedSongId.next(songId);
+  setIsQuizOver(value: boolean): void {
+    this.isQuizOver.next(value);
   }
 }

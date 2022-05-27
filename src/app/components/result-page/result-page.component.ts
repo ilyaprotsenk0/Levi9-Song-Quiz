@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScoreService } from 'src/app/services/score.service';
 import { UserService } from 'src/app/services/user.service';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-result-page',
@@ -16,6 +17,7 @@ export class ResultPageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private scoreService: ScoreService,
+    private quizService: QuizService,
     private router: Router
   ) {}
 
@@ -28,7 +30,7 @@ export class ResultPageComponent implements OnInit {
       }
     });
 
-    this.scoreService.getIsQuizOver$().subscribe((isQuizOver) => {
+    this.quizService.getIsQuizOver$().subscribe((isQuizOver) => {
       if (!isQuizOver) {
         this.router.navigateByUrl('/quiz');
       }
@@ -40,7 +42,6 @@ export class ResultPageComponent implements OnInit {
 
     this.scoreService.getMaxScore$().subscribe((max) => {
       this.maxScore = max;
-      console.log(this.maxScore, max);
     });
   }
 

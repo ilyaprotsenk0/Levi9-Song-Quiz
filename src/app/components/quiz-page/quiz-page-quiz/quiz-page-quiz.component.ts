@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Genre } from 'src/app/models/Genre';
 import { Song } from 'src/app/models/Song';
 import { CounterService } from 'src/app/services/counter.service';

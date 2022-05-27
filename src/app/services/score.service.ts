@@ -7,10 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ScoreService {
   private score: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private isQuizOver: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    false
-  );
-  private maxScore: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   getScore$(): Observable<number> {
     return this.score.asObservable();
@@ -24,13 +20,7 @@ export class ScoreService {
     this.score.next(0);
   }
 
-  getIsQuizOver$(): Observable<boolean> {
-    return this.isQuizOver.asObservable();
-  }
-
-  setIsQuizOver(value: boolean): void {
-    this.isQuizOver.next(value);
-  }
+  private maxScore: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   getMaxScore$(): Observable<number> {
     return this.maxScore.asObservable();
